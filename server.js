@@ -52,3 +52,14 @@ const artworkSchema = new mongoose.Schema({
 app.listen(3000, () => {
     console.log('Server listening on port 3000!');
   });
+
+  app.get('/api/artworks', async (req, res) => {
+    try {
+      const artworks = await Artwork.find();
+      res.json(artworks);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Server error');
+    }
+  });
+  
