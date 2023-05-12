@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const artworkSchema = new mongoose.Schema({
+  era: {
+    type: String,
+    required: true
+  },
   title: {
     type: String,
     required: true
