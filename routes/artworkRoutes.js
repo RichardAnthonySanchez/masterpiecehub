@@ -1,11 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const { artworkSchema } = require('../models/artwork');
+const artworkModel = require('../models/artwork');
 const artworks = require('../models/artworkData');
 
 // Get all artworks
-router.get('/artworks', (req, res) => {
-  res.send(artworks);
+router.get('/', async (req, res) => {
+  try {
+    const artworks = await artworkModel.find();
+    res.json(artworks);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server Error' });
+  }
 });
 
 // Get artwork by ID
