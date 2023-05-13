@@ -1,5 +1,6 @@
 const artworks = [
     {
+      id: 1,
       era: "Renaissance",
       title: "Mona Lisa",
       artist: "Leonardo da Vinci",
@@ -8,6 +9,7 @@ const artworks = [
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mona_Lisa.jpg/450px-Mona_Lisa.jpg"
     },
     {
+      id: 2,
       era: "Impressionism",
       title: "Starry Night",
       artist: "Vincent van Gogh",
