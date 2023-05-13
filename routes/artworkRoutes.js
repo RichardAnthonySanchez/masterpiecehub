@@ -61,5 +61,19 @@ router.put('/:id', (req, res) => {
   return res.status(200).send(artwork);
 });
 
+//delete artwork by id
+router.delete('/:id', (req, res) => {
+  const id = req.params.id;
+  const index = artworks[id - 1];
+
+  if (index !== -1) {
+    artworks.splice(index, 1);
+    res.send(`Artwork with id ${id} deleted.`);
+  } else {
+    res.status(404).send(`Artwork with id ${id} not found.`);
+  }
+});
+
+
 
 module.exports = router;
