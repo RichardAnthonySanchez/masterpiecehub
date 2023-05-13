@@ -44,26 +44,22 @@ router.post('/', (req, res) => {
 
 //update existing artwork by id
 router.put('/:id', (req, res) => {
-  const { id } = req.params;
-  const artwork = artworks.find((artwork) => artwork.id === id);
+  const id = req.params.id;
+  const artwork = artworks[id - 1];
 
   if (!artwork) {
     return res.status(404).send('Artwork not found');
   }
 
-  const { error } = artworkModel.validate(req.body);
-  if (error) {
-    return res.status(400).send(error.details[0].message);
-  }
+  artwork.era = req.body.era || artwork.era;
+  artwork.title = req.body.title || artwork.title;
+  artwork.artist = req.body.artist || artwork.artist;
+  artwork.year = req.body.year || artwork.year;
+  artwork.image = req.body.image || artwork.image;
+  artwork.description = req.body.description || artwork.description;
 
-  artwork.era = req.body.era;
-  artwork.title = req.body.title;
-  artwork.artist = req.body.artist;
-  artwork.year = req.body.year;
-  artwork.image = req.body.image;
-  artwork.description = req.body.description;
-
-  res.send(artwork);
+  return res.status(200).send(artwork);
 });
+
 
 module.exports = router;
