@@ -3,9 +3,23 @@ const router = express.Router();
 const artworkModel = require('../models/artwork');
 const artworks = require('../models/artworkData');
 const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
 
 router.use(express.json());
 router.use(bodyParser.json());
+
+// middleware function to check for JWT token in Authorization header
+const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+  if (token == null) return res.sendStatus(401);
+
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+    if (err) return res.sendStatus(403);
+    req.user = user;
+    next();
+  });
+}
 
 //get all artworks
 router.get('/', (req, res) => {
@@ -20,7 +34,7 @@ router.get('/:id', (req, res) => {
 
 
 //create artwork
-router.post('/', (req, res) => {
+router.post('/', authenticateToken, (req, res) => {
   const newArtwork = {
     title: req.body.title,
     artist: req.body.artist,
@@ -43,7 +57,7 @@ router.post('/', (req, res) => {
 });
 
 //update existing artwork by id
-router.put('/:id', (req, res) => {
+router.put('/:id', authenticateToken, (req, res) => {
   const id = req.params.id;
   const artwork = artworks[id - 1];
 
@@ -62,7 +76,7 @@ router.put('/:id', (req, res) => {
 });
 
 //delete artwork by id
-router.delete('/:id', (req, res) => {
+router.delete('/:id', authenticateToken, (req, res) => {
   const id = req.params.id;
   const index = artworks[id - 1];
 

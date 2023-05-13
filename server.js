@@ -4,12 +4,15 @@ const bodyParser = require('body-parser');
 const artworkRoutes = require('./routes/artworkRoutes');
 const artworkSchema = require('./models/artwork');
 const artworks = require('./models/artworkData');
+const authRoutes = require('./routes/authRoutes');
 const app = express();
 
-// Mount artworkRoutes as middleware
+// parse requests with json payloads
 app.use(express.json());
-app.use(bodyParser.json());
+
+// use the artwork and authentication route
 app.use('/artworks', artworkRoutes);
+app.use('/login', authRoutes);
   
   mongoose.connect('mongodb://localhost:27017/artwork_db', {
   useNewUrlParser: true,
