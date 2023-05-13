@@ -1,12 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const artworkRoutes = require('./routes/artworkRoutes');
 const artworkSchema = require('./models/artwork');
 const artworks = require('./models/artworkData');
-
 const app = express();
 
 // Mount artworkRoutes as middleware
+app.use(express.json());
+app.use(bodyParser.json());
 app.use('/artworks', artworkRoutes);
   
   mongoose.connect('mongodb://localhost:27017/artwork_db', {

@@ -2,39 +2,27 @@ const express = require('express');
 const router = express.Router();
 const artworkModel = require('../models/artwork');
 const artworks = require('../models/artworkData');
+const bodyParser = require('body-parser');
 
-// Get all artworks
-router.get('/', async (req, res) => {
-  try {
-    const artworks = await artworkModel.find();
-    res.json(artworks);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Server Error' });
-  }
+router.use(express.json());
+router.use(bodyParser.json());
+
+router.get('/', (req, res) => {
+  res.send(artworks);
 });
 
-// Get artwork by ID
-router.get('/artworks/:id', (req, res) => {
-  const id = req.params.id;
-  const artwork = artworks.find((artwork) => artwork.id === id);
-  if (!artwork) return res.status(404).send('Artwork not found');
-  res.send(artwork);
-});
+router.post('/', (req, res) => {
+  const newArtwork = {
+    id: artworks.length + 1, // assign a unique ID based on the length of the existing array
+    title: req.body.title,
+    artist: req.body.artist,
+    description: req.body.description,
+    image: req.body.image,
+    era: req.body.era,
+  };
 
-// Create artwork
-router.post('/artworks', (req, res) => {
-  const { era, title, artist, year, description, image } = req.body;
-  const artwork = { era, title, artist, year, description, image };
-
-  // Validate artwork data against artworkSchema
-  const { error } = artworkSchema.validate(artwork);
-  if (error) return res.status(400).send(error.details[0].message);
-
-  // Add artwork to artworks array
-  artworks.push(artwork);
-
-  res.send(artwork);
+  artworks.push(newArtwork);
+  res.send(newArtwork); // return the newly added artwork as a response
 });
 
 module.exports = router;
