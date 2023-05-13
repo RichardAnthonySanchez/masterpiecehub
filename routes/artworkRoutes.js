@@ -13,16 +13,22 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const newArtwork = {
-    id: artworks.length + 1, // assign a unique ID based on the length of the existing array
     title: req.body.title,
     artist: req.body.artist,
-    description: req.body.description,
-    image: req.body.image,
+    year: req.body.year,
     era: req.body.era,
+    image: req.body.image,
+    description: req.body.description
   };
 
+  // Validate artwork data against schema
+  const { error } = artworkModel.validate(newArtwork);
+  if (error) {
+    return res.status(400).send(error.details[0].message);
+  }
+
   artworks.push(newArtwork);
-  res.send(newArtwork); // return the newly added artwork as a response
+  res.status(201).json(newArtwork);
 });
 
 module.exports = router;
