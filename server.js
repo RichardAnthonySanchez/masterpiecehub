@@ -6,6 +6,12 @@ const artworkSchema = require('./models/artwork');
 const artworks = require('./models/artworkData');
 const authRoutes = require('./routes/authRoutes');
 const app = express();
+const cors = require('cors');
+
+// enable CORS for all origins
+app.use(cors({
+  origin: "*",
+}));
 
 // parse requests with json payloads
 app.use(express.json());

@@ -3,9 +3,21 @@ import React, { useState } from 'react';
 const LoginForm = ({ handleLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    handleLogin(username, password);
+    const response = await fetch('http://localhost:3000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, password })
+    });
+    const data = await response.json();
+    if (response.ok) {
+      handleLogin(data.token);
+    } else {
+      alert(data.message);
+    }
   };
 
   return (
