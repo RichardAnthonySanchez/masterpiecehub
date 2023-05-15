@@ -12,14 +12,12 @@ router.use(bodyParser.json());
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
-  if (token == null) return res.sendStatus(401);
-
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403);
-    req.user = user;
+  req.token = token;
+  if (typeof token !== 'undefined') {
     next();
-  });
-}
+  } else {
+    return res.sendStatus(403);
+  }};
 
 //get all artworks
 router.get('/', (req, res) => {
@@ -77,15 +75,18 @@ router.put('/:id', authenticateToken, (req, res) => {
 
 //delete artwork by id
 router.delete('/:id', authenticateToken, (req, res) => {
-  const id = req.params.id;
-  const index = artworks[id - 1];
+  jwt.verify(req.token, 'secret_key', (err, authData) => {
 
-  if (index !== -1) {
-    artworks.splice(index, 1);
-    res.send(`Artwork with id ${id} deleted.`);
-  } else {
-    res.status(404).send(`Artwork with id ${id} not found.`);
-  }
+    const id = req.params.id;
+    const index = artworks[id - 1];
+
+    if(err) {
+      res.sendStatus(403);
+    } else {
+      artworks.splice(index, 1);
+      res.send(`Artwork with id ${id} deleted.`);
+    }
+  })
 });
 
 

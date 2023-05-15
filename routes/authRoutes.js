@@ -8,7 +8,6 @@ const ADMIN_PASSWORD = 'password';
 
 // Login endpoint
 router.post('/', (req, res) => {
-  console.log("login post request triggered");
   const { username, password } = req.body;
 
   // Check if the provided username and password match the admin credentials
