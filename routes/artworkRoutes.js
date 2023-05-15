@@ -4,6 +4,8 @@ const artworkModel = require('../models/artwork');
 const artworks = require('../models/artworkData');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
+const path = require('path');
+
 
 router.use(express.json());
 router.use(bodyParser.json());
@@ -31,6 +33,12 @@ const authenticateToken = (req, res, next) => {
 router.get('/', (req, res) => {
   res.send(artworks);
 });
+
+//get admin dashboard
+router.get('/admin', authenticateToken, (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/admin.html'));
+});
+
 
 //generate unique pages for each artwork
 router.get('/:id', (req, res) => {

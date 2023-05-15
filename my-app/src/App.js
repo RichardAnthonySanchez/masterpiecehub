@@ -9,19 +9,27 @@ function App() {
     setToken(username);
   };
 
-  const getProtectedData = () => {
-    //console.log(`${token}`)
-    fetch('http://localhost:3000/artworks/1', {
-      method: 'DELETE',
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
+  const getProtectedData = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/artworks/admin', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
       });
-  };
+  
+      if (response.status === 200) {
+        const html = await response.text();
+        document.documentElement.innerHTML = html;
+      } else {
+        throw new Error('Failed to get admin dashboard');
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
+  
 
   return (
     <div>
