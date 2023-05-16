@@ -30,10 +30,54 @@ function App() {
       console.error(err);
     }
   }
+
+  const handleEdit = async (artworkId) => {
+    try {
+      const response = await fetch(`http://localhost:3000/artworks/${artworkId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        // Include the updated artwork data in the request body
+        body: JSON.stringify({ /* updated artwork data */ }),
+      });
+  
+      if (response.status === 200) {
+        console.log(`Artwork with ID ${artworkId} has been successfully updated.`);
+        // Perform any necessary UI updates or notifications
+      } else {
+        throw new Error('Failed to update artwork');
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleDelete = async (artworkId) => {
+    try {
+      const response = await fetch(`http://localhost:3000/artworks/${artworkId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+  
+      if (response.status === 200) {
+        console.log(`Artwork with ID ${artworkId} has been successfully deleted.`);
+        // Perform any necessary UI updates or notifications
+      } else {
+        throw new Error('Failed to delete artwork');
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
   
 
   return (
-    <div>
+<div>
       {token ? (
         <div>
           <h2>You are logged in!</h2>
@@ -42,7 +86,11 @@ function App() {
           <h3>Artworks</h3>
           <ul>
             {artworks.map((artwork) => (
-              <li key={artwork.id}>{artwork.title}</li>
+              <li key={artwork.id}>
+                {artwork.title}{' '}
+                <button onClick={() => handleEdit(artwork.id)}>Edit</button>{' '}
+                <button onClick={() => handleDelete(artwork.id)}>Delete</button>
+              </li>
             ))}
           </ul>
         </div>
