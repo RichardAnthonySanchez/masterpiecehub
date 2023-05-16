@@ -34,11 +34,10 @@ router.get('/', (req, res) => {
   res.send(artworks);
 });
 
-//get admin dashboard
+//get admin dashboard boilerplate html
 router.get('/admin', authenticateToken, (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/admin.html'));
+  res.send(artworks);
 });
-
 
 //generate unique pages for each artwork
 router.get('/:id', (req, res) => {

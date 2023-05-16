@@ -5,6 +5,7 @@ const LoginForm = ({ handleLogin }) => {
   const [password, setPassword] = useState('');
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     const response = await fetch('http://localhost:3000/login', {
       method: 'POST',
       headers: {

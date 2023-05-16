@@ -16,6 +16,9 @@ app.use(cors({
 // parse requests with json payloads
 app.use(express.json());
 
+//use static middleware
+app.use(express.static('public'));
+
 // use the artwork and authentication route
 app.use('/artworks', artworkRoutes);
 app.use('/login', authRoutes);

@@ -4,6 +4,7 @@ import LoginForm from './components/LoginForm';
 
 function App() {
   const [token, setToken] = useState('');
+  const [artworks, setArtworks] = useState([]);
 
   const handleLogin = (username, password) => {
     setToken(username);
@@ -20,8 +21,8 @@ function App() {
       });
   
       if (response.status === 200) {
-        const html = await response.text();
-        document.documentElement.innerHTML = html;
+        const data = await response.json();
+        setArtworks(data);
       } else {
         throw new Error('Failed to get admin dashboard');
       }
@@ -38,6 +39,12 @@ function App() {
           <h2>You are logged in!</h2>
           <p>Your token is: {token}</p>
           <button onClick={getProtectedData}>Get Protected Data</button>
+          <h3>Artworks</h3>
+          <ul>
+            {artworks.map((artwork) => (
+              <li key={artwork.id}>{artwork.title}</li>
+            ))}
+          </ul>
         </div>
       ) : (
         <LoginForm handleLogin={handleLogin} />
