@@ -46,7 +46,7 @@ router.get('/:id', (req, res) => {
 });
 
 //create artwork
-router.post('/', (req, res) => {
+router.post('/', (req, res) => { //put auth token
   const newArtwork = {
     title: req.body.title,
     artist: req.body.artist,
@@ -59,10 +59,10 @@ router.post('/', (req, res) => {
   newArtwork.id = artworks.length + 1;
 
   // Validate artwork data against schema
-  const { error } = artworkModel.validate(newArtwork);
+  /*const { error } = artworkModel.validate(newArtwork);
   if (error) {
     return res.status(400).send(error.details[0].message);
-  }
+  }*/
 
   artworks.push(newArtwork);
   res.status(201).json(newArtwork);

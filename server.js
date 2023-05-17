@@ -21,12 +21,6 @@ app.use(express.json());
 //use static middleware
 app.use(express.static('public'));
 
-// Set EJS as the template engine
-app.set('view engine', 'ejs');
-
-// Set the views directory (the folder where your EJS templates are located)
-app.set('views', path.join(__dirname, 'views'));
-
 // use the artwork and authentication route
 app.use('/artworks', artworkRoutes);
 app.use('/login', authRoutes);
