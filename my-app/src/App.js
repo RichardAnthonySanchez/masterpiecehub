@@ -5,6 +5,7 @@ import LoginForm from './components/LoginForm';
 function App() {
   const [token, setToken] = useState('');
   const [artworks, setArtworks] = useState([]);
+  const [showForm, setShowForm] = useState(false);
 
   const handleLogin = (username, password) => {
     setToken(username);
@@ -31,29 +32,39 @@ function App() {
     }
   }
 
-  const handleEdit = async (artworkId) => {
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+  
+    const formData = new FormData(event.target);
+    const artworkData = Object.fromEntries(formData);
+  
     try {
-      const response = await fetch(`http://localhost:3000/artworks/${artworkId}`, {
-        method: 'PUT',
+      const response = await fetch('http://localhost:3000/artworks', {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
-        // Include the updated artwork data in the request body
-        body: JSON.stringify({ /* updated artwork data */ }),
+        body: JSON.stringify(artworkData),
       });
   
-      if (response.status === 200) {
-        console.log(`Artwork with ID ${artworkId} has been successfully updated.`);
-        // Perform any necessary UI updates or notifications
+      if (response.status === 201) {
+        const newArtwork = await response.json();
+        setArtworks((prevArtworks) => [...prevArtworks, newArtwork]);
+        setShowForm(false);
+        event.target.reset();
       } else {
-        throw new Error('Failed to update artwork');
+        throw new Error('Failed to add artwork');
       }
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error(error);
     }
   };
 
+  const handleAddArtwork = () => {
+    setShowForm(true);
+  };
+  
   const handleDelete = async (artworkId) => {
     try {
       const response = await fetch(`http://localhost:3000/artworks/${artworkId}`, {
@@ -82,13 +93,30 @@ function App() {
         <div>
           <h2>You are logged in!</h2>
           <p>Your token is: {token}</p>
-          <button onClick={getProtectedData}>Get Protected Data</button>
+          <button onClick={getProtectedData}>Modify Artworks</button>
           <h3>Artworks</h3>
+          <button onClick={handleAddArtwork}>Add Artwork</button>
+          {showForm && (
+            <form id="addArtworkForm" onSubmit={handleFormSubmit}>
+              <label htmlFor="title">Title:</label>
+              <input type="text" id="title" name="title" required />
+              <label htmlFor="artist">Artist:</label>
+              <input type="text" id="artist" name="artist" required />
+              <label htmlFor="year">Year:</label>
+              <input type="text" id="year" name="year" required />
+              <label htmlFor="era">Era:</label>
+              <input type="text" id="era" name="era" required />
+              <label htmlFor="image">Image URL:</label>
+              <input type="text" id="image" name="image" required />
+              <label htmlFor="description">Description:</label>
+              <textarea id="description" name="description" required></textarea>
+              <button type="submit">Add Artwork</button>
+            </form>
+          )}
           <ul>
             {artworks.map((artwork) => (
               <li key={artwork.id}>
                 {artwork.title}{' '}
-                <button onClick={() => handleEdit(artwork.id)}>Edit</button>{' '}
                 <button onClick={() => handleDelete(artwork.id)}>Delete</button>
               </li>
             ))}

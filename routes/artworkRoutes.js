@@ -45,9 +45,8 @@ router.get('/:id', (req, res) => {
   res.send(artworks[id - 1]);
 });
 
-
 //create artwork
-router.post('/', authenticateToken, (req, res) => {
+router.post('/', (req, res) => {
   const newArtwork = {
     title: req.body.title,
     artist: req.body.artist,
@@ -67,25 +66,6 @@ router.post('/', authenticateToken, (req, res) => {
 
   artworks.push(newArtwork);
   res.status(201).json(newArtwork);
-});
-
-//update existing artwork by id
-router.put('/:id', authenticateToken, (req, res) => {
-  const id = req.params.id;
-  const artwork = artworks[id - 1];
-
-  if (!artwork) {
-    return res.status(404).send('Artwork not found');
-  }
-
-  artwork.era = req.body.era || artwork.era;
-  artwork.title = req.body.title || artwork.title;
-  artwork.artist = req.body.artist || artwork.artist;
-  artwork.year = req.body.year || artwork.year;
-  artwork.image = req.body.image || artwork.image;
-  artwork.description = req.body.description || artwork.description;
-
-  return res.status(200).send(artwork);
 });
 
 //delete artwork by id
