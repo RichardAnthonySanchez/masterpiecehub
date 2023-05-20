@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import LoginForm from './components/LoginForm';
+import HomePage from './components/HomePage';
 import SearchForm from './components/SearchForm';
 import { Container, ListGroup } from 'react-bootstrap';
 
@@ -108,53 +110,12 @@ function App() {
   
 
   return (
-<div>
-      {token ? (
-        <div>
-          <h2>You are logged in!</h2>
-          <p>Your token is: {token}</p>
-          <button onClick={getProtectedData}>Modify Artworks</button>
-          <h3>Search</h3>
-          <SearchForm searchQuery={searchQuery} setSearchQuery={setSearchQuery} handleSearch={handleSearch} />
-          <ListGroup>
-            {searchResults.map((artwork) => (
-              <ListGroup.Item key={artwork.id}>
-                {artwork.title} by {artwork.artist} ({artwork.year})
-              </ListGroup.Item>
-            ))}
-          </ListGroup>
-          <h3>Artworks</h3>
-          <button onClick={handleAddArtwork}>Add Artwork</button>
-          {showForm && (
-            <form id="addArtworkForm" onSubmit={handleFormSubmit}>
-              <label htmlFor="title">Title:</label>
-              <input type="text" id="title" name="title" required />
-              <label htmlFor="artist">Artist:</label>
-              <input type="text" id="artist" name="artist" required />
-              <label htmlFor="year">Year:</label>
-              <input type="text" id="year" name="year" required />
-              <label htmlFor="era">Era:</label>
-              <input type="text" id="era" name="era" required />
-              <label htmlFor="image">Image URL:</label>
-              <input type="text" id="image" name="image" required />
-              <label htmlFor="description">Description:</label>
-              <textarea id="description" name="description" required></textarea>
-              <button type="submit">Add Artwork</button>
-            </form>
-          )}
-          <ul>
-            {artworks.map((artwork) => (
-              <li key={artwork.id}>
-                {artwork.title}{' '}
-                <button onClick={() => handleDelete(artwork.id)}>Delete</button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ) : (
-        <LoginForm handleLogin={handleLogin} />
-      )}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginForm />} />
+      </Routes>
+    </Router>
   );
 }
 
