@@ -1,15 +1,35 @@
 import React, { useState } from 'react';
 import './App.css';
 import LoginForm from './components/LoginForm';
+import SearchForm from './components/SearchForm';
+import { Container, ListGroup } from 'react-bootstrap';
 
 function App() {
   const [token, setToken] = useState('');
   const [artworks, setArtworks] = useState([]);
   const [showForm, setShowForm] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+
 
   const handleLogin = (username, password) => {
     setToken(username);
   };
+
+  const handleSearch = () => {
+    const query = searchQuery.trim().toLowerCase();
+    if (query === '') {
+      setSearchResults([]);
+      return;
+    }
+    const filteredArtworks = artworks.filter(
+      (artwork) =>
+        artwork.title.toLowerCase().includes(query) ||
+        artwork.artist.toLowerCase().includes(query) ||
+        artwork.era.toLowerCase().includes(query)
+    );
+    setSearchResults(filteredArtworks);
+  }; 
 
   const getProtectedData = async () => {
     try {
@@ -94,6 +114,15 @@ function App() {
           <h2>You are logged in!</h2>
           <p>Your token is: {token}</p>
           <button onClick={getProtectedData}>Modify Artworks</button>
+          <h3>Search</h3>
+          <SearchForm searchQuery={searchQuery} setSearchQuery={setSearchQuery} handleSearch={handleSearch} />
+          <ListGroup>
+            {searchResults.map((artwork) => (
+              <ListGroup.Item key={artwork.id}>
+                {artwork.title} by {artwork.artist} ({artwork.year})
+              </ListGroup.Item>
+            ))}
+          </ListGroup>
           <h3>Artworks</h3>
           <button onClick={handleAddArtwork}>Add Artwork</button>
           {showForm && (
