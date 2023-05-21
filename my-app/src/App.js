@@ -10,7 +10,6 @@ import { Container, ListGroup } from 'react-bootstrap';
 function App() {
   const [token, setToken] = useState('');
   const [artworks, setArtworks] = useState([]);
-  const [showForm, setShowForm] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -34,9 +33,7 @@ function App() {
     setSearchResults(filteredArtworks);
   }; 
 
-  const handleAddArtwork = () => {
-    setShowForm(true);
-  };
+
   
 
   return (
