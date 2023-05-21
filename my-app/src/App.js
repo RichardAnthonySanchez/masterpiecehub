@@ -3,39 +3,18 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import LoginForm from './components/LoginForm';
 import HomePage from './components/HomePage';
-import SearchForm from './components/SearchForm';
 import Authentication from './components/Authentication';
-import { Container, ListGroup } from 'react-bootstrap';
 
+//init state with no token
 function App() {
   const [token, setToken] = useState('');
-  const [artworks, setArtworks] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
 
-
+  //get token after authorized login
   const handleLogin = (token) => {
     setToken(token);
   };
 
-  const handleSearch = () => {
-    const query = searchQuery.trim().toLowerCase();
-    if (query === '') {
-      setSearchResults([]);
-      return;
-    }
-    const filteredArtworks = artworks.filter(
-      (artwork) =>
-        artwork.title.toLowerCase().includes(query) ||
-        artwork.artist.toLowerCase().includes(query) ||
-        artwork.era.toLowerCase().includes(query)
-    );
-    setSearchResults(filteredArtworks);
-  }; 
-
-
-  
-
+  //render html on homepage
   return (
     <Router>
       <Routes>

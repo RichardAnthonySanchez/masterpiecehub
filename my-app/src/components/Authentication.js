@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
 
+//structure auth, init form state hidden, and access artwork data
 const Authentication = ({ token }) => {
   const [showForm, setShowForm] = useState(false);
   const [artworks, setArtworks] = useState([]);
 
+  //handle add artwork button
   const handleAddArtwork = () => {
     setShowForm(true);
   };
-
+  
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     // Get the form data
     const formData = new FormData(event.target);
     const artworkData = Object.fromEntries(formData.entries());
 
+    //get all artwork post request
     try {
       const response = await fetch('http://localhost:3000/artworks', {
         method: 'POST',
@@ -36,6 +39,7 @@ const Authentication = ({ token }) => {
     }
   };
 
+  //get admin dashboard via post request
   useEffect(() => {
     const getProtectedData = async () => {
       try {
@@ -84,6 +88,7 @@ const Authentication = ({ token }) => {
     }
   };
 
+  //render html for authorized users
     return (
       <div>
       <h2>Artworks</h2>
