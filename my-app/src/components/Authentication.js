@@ -30,14 +30,39 @@ const Authentication = ({ token }) => {
     getProtectedData();
   }, [token]);
 
+  //function handles deleting artworks from the database
+  const handleDelete = async (artworkId) => {
+    try {
+      const response = await fetch(`http://localhost:3000/artworks/${artworkId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+  
+      if (response.status === 200) {
+        console.log(`Artwork with ID ${artworkId} has been successfully deleted.`);
+        // Perform any necessary UI updates or notifications
+      } else {
+        throw new Error('Failed to delete artwork');
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
     return (
       <div>
       <h2>Artworks</h2>
       <ul>
-        {artworks.map((artwork) => (
-          <li key={artwork.id}>{artwork.title}</li>
-        ))}
-      </ul>
+            {artworks.map((artwork) => (
+              <li key={artwork.id}>
+                {artwork.title}{' '}
+                <button onClick={() => handleDelete(artwork.id)}>Delete</button>
+              </li>
+            ))}
+          </ul>
     </div>
     );
   };
