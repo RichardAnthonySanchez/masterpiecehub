@@ -4,6 +4,7 @@ import './App.css';
 import LoginForm from './components/LoginForm';
 import HomePage from './components/HomePage';
 import SearchForm from './components/SearchForm';
+import Authentication from './components/Authentication';
 import { Container, ListGroup } from 'react-bootstrap';
 
 function App() {
@@ -14,8 +15,8 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('');
 
 
-  const handleLogin = (username, password) => {
-    setToken(username);
+  const handleLogin = (token) => {
+    setToken(token);
   };
 
   const handleSearch = () => {
@@ -32,56 +33,6 @@ function App() {
     );
     setSearchResults(filteredArtworks);
   }; 
-
-  const getProtectedData = async () => {
-    try {
-      const response = await fetch('http://localhost:3000/artworks/admin', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
-      });
-  
-      if (response.status === 200) {
-        const data = await response.json();
-        setArtworks(data);
-      } else {
-        throw new Error('Failed to get admin dashboard');
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-  
-    const formData = new FormData(event.target);
-    const artworkData = Object.fromEntries(formData);
-  
-    try {
-      const response = await fetch('http://localhost:3000/artworks', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(artworkData),
-      });
-  
-      if (response.status === 201) {
-        const newArtwork = await response.json();
-        setArtworks((prevArtworks) => [...prevArtworks, newArtwork]);
-        setShowForm(false);
-        event.target.reset();
-      } else {
-        throw new Error('Failed to add artwork');
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   const handleAddArtwork = () => {
     setShowForm(true);
@@ -113,7 +64,11 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginForm />} />
+        <Route path="/login" element={<LoginForm handleLogin={handleLogin} />} />
+        <Route
+          path="/protected"
+          element={<Authentication token={token} />} // Wrap Authentication component in a Route
+        />
       </Routes>
     </Router>
   );
