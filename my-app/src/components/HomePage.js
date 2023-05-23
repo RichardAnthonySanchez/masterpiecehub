@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Card from './Card'; // Replace './path/to/Card' with the actual path to your Card component file
+import Card from './Card';
 
 const HomePage = () => {
   const [artworkData, setArtworkData] = useState([]);
+  const [uniqueEras, setUniqueEras] = useState([]);
 
   useEffect(() => {
     // Fetch artwork data when the component mounts
@@ -15,26 +16,38 @@ const HomePage = () => {
       const response = await fetch('http://localhost:3000/artworks');
       const data = await response.json();
       setArtworkData(data);
+      // Extract unique eras from artwork data
+      const uniqueEras = [...new Set(data.map((artwork) => artwork.era))];
+      setUniqueEras(uniqueEras);
     } catch (error) {
       console.error('Error fetching artwork data:', error);
     }
   };
   
-    return (
-      <div className="homepage">
+  return (
+    <div className="homepage">
       <h2>Explore Art Eras</h2>
       <div className="card-grid">
-      {artworkData.map((artwork) => (
-        <Card
-          key={artwork.id}
-          title={artwork.era}
-          image={artwork.image}
-        />
-      ))}
-    </div>
-      <Link to="/login">Login</Link>
+        {uniqueEras.map((era) => {
+          // Find the first artwork for the era
+          const artworkForEra = artworkData.find((artwork) => artwork.era === era);
+
+          // Render the card only if there is artwork for the era
+          if (artworkForEra) {
+            return (
+              <Card
+                key={artworkForEra.id}
+                title={artworkForEra.era}
+                image={artworkForEra.image}
+              />
+            );
+          }
+          return null;
+        })}
       </div>
-    );
+      <Link to="/login">Login</Link>
+    </div>
+  );
   }
 
 export default HomePage;
