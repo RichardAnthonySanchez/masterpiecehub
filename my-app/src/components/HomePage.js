@@ -26,7 +26,13 @@ const HomePage = () => {
   
   return (
     <div className="homepage">
-      <h2>Explore Art Eras</h2>
+      <h1 className='header'>MASTERPIECE HUB</h1>
+      <div className="arrow-left">
+      <img src="img/nav-left.svg" alt="nav left" />
+      </div>
+      <div className="arrow-right">
+      <img src="img/nav-right.svg" alt="nav right" />
+      </div>
       <div className="card-grid">
         {uniqueEras.map((era) => {
           // Find the first artwork for the era
@@ -37,7 +43,7 @@ const HomePage = () => {
             return (
               <Card
                 key={artworkForEra.id}
-                title={artworkForEra.era}
+                //title={artworkForEra.era}
                 image={artworkForEra.image}
               />
             );
@@ -45,7 +51,7 @@ const HomePage = () => {
           return null;
         })}
       </div>
-      <Link to="/login">Login</Link>
+      <Link to="/login" className='login'>Login</Link>
     </div>
   );
   }

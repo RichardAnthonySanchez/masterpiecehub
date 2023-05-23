@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Almendra+Display&family=Comfortaa&display=swap');
+
+:root {
+    --light-color: #f5e8e5;
+    --dark-color: #a67264;
+    --medium-color: #ff992a;
+}
+
+body {
+    background-color: var(--light-color);
+    font-family: 'Comfortaa', cursive;
+    color: var(--dark-color);
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Almendra Display', cursive;
+    font-size: 2rem;
+}
