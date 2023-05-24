@@ -48,17 +48,19 @@ const HomePage = () => {
       <img src="img/nav-right.svg" alt="nav right" />
       </div>
       <div className="card-grid">
-        {displayedEras.map((era) => {
+        {displayedEras.map((era, index) => {
           // Find the first artwork for the era
           const artworkForEra = artworkData.find((artwork) => artwork.era === era);
 
           // Render the card only if there is artwork for the era
           if (artworkForEra) {
+            const cardClass = `card card-${index + 1}`; // Generate a unique class name
             return (
               <Card
-                key={artworkForEra.id}
+                key={index}
                 title={artworkForEra.era}
                 image={artworkForEra.image}
+                className={cardClass}
               />
             );
           }

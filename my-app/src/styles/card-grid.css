@@ -7,7 +7,7 @@
   grid-column: 3 / 11;
   /* Start on column 3 and end on column 11 (exclusive) */
   overflow: hidden;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .card {
@@ -27,8 +27,8 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: var(--dark-color);
-  color: var(--light-color);
+  background-color: var(--light-color);
+  color: var(--dark-color);
   padding: 10px;
   pointer-events: none;
   z-index: 3; /* Adjust the value as needed */
@@ -39,7 +39,7 @@
 }
 
 .card+.card {
-  margin-left: 8px;
+  margin-left: 16px;
 }
 
 .card img {
@@ -135,4 +135,16 @@
 .arrow-right:hover {
   cursor: pointer;
   mix-blend-mode: hard-light;
+}
+
+.card.card-1 img {
+  transform: scale(1.1);
+}
+
+.card.card-2 img {
+  transform: translateY(15%);
+}
+
+.card.card-4 img {
+  transform: translateX(25%);
 }
