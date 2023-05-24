@@ -5,6 +5,20 @@ import Card from './Card';
 const HomePage = () => {
   const [artworkData, setArtworkData] = useState([]);
   const [uniqueEras, setUniqueEras] = useState([]);
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
+
+  //navigate era cards to the left
+  const handleLeftArrowClick = () => {
+    setActiveCardIndex((prevIndex) => prevIndex - 1);
+  };
+  
+  //navigate era cards to the right
+  const handleRightArrowClick = () => {
+    setActiveCardIndex((prevIndex) => prevIndex + 1);
+  };
+
+  //display 4 cards at a time
+  const displayedEras = uniqueEras.slice(activeCardIndex, activeCardIndex + 4);
 
   useEffect(() => {
     // Fetch artwork data when the component mounts
@@ -27,14 +41,14 @@ const HomePage = () => {
   return (
     <div className="homepage">
       <h1 className='header'>MASTERPIECE HUB</h1>
-      <div className="arrow-left">
+      <div className="arrow-left" onClick={handleLeftArrowClick}>
       <img src="img/nav-left.svg" alt="nav left" />
       </div>
-      <div className="arrow-right">
+      <div className="arrow-right" onClick={handleRightArrowClick}>
       <img src="img/nav-right.svg" alt="nav right" />
       </div>
       <div className="card-grid">
-        {uniqueEras.map((era) => {
+        {displayedEras.map((era) => {
           // Find the first artwork for the era
           const artworkForEra = artworkData.find((artwork) => artwork.era === era);
 
@@ -43,7 +57,7 @@ const HomePage = () => {
             return (
               <Card
                 key={artworkForEra.id}
-                //title={artworkForEra.era}
+                title={artworkForEra.era}
                 image={artworkForEra.image}
               />
             );
