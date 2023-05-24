@@ -54,7 +54,10 @@ const HomePage = () => {
 
           // Render the card only if there is artwork for the era
           if (artworkForEra) {
-            const cardClass = `card card-${index + 1}`; // Generate a unique class name
+            //era class names need to be one word to be targeted by css style
+            const era = artworkForEra.era;
+            const eraReduced = era.split(' ').join('');
+            const cardClass = `card card-${eraReduced}`; // Generate a unique class name
             return (
               <Card
                 key={index}
