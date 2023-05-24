@@ -1,74 +1,138 @@
 .card-grid {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    grid-row: 3 / 11; /* Start on row 5 and end on row 11 (exclusive) */
-    grid-column: 3 / 11; /* Start on column 3 and end on column 11 (exclusive) */
-    overflow: hidden;
-    justify-content: space-evenly;
-  }
-  
-  .card {
-    width: calc(25% - 20px); /* Adjust the value as needed */
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  grid-row: 3 / 11;
+  /* Start on row 5 and end on row 11 (exclusive) */
+  grid-column: 3 / 11;
+  /* Start on column 3 and end on column 11 (exclusive) */
+  overflow: hidden;
+  justify-content: space-evenly;
+}
 
-  .card + .card {
-    margin-left: 8px;
-  } 
-  
-  .card img {
-    width: 200%;
-    height: auto;
-    transform-origin: center;
-    transform: scale(110%);
-  }
+.card {
+  flex-basis: calc(20% - 20px); /* Adjust the value as needed */
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+}
 
-  .homepage {
-    height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr); /* Create 12 equal-width columns */
-    grid-template-rows: repeat(12, 1fr); /* Create 12 equal-height rows */
-  }
+.card h3 {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  padding: 10px;
+  pointer-events: none;
+  z-index: 3; /* Adjust the value as needed */
+}
 
-  .header {
-    display: flex;
-    justify-content: center;
-    font-size: 119px;
-    grid-row: 2 / 3; /* Start on row 5 and end on row 11 (exclusive) */
-    grid-column: 3 / 11; /* Start on column 3 and end on column 11 (exclusive) */
-  }
+.card:hover h3 {
+  display: block;
+}
 
-  .login {
-    grid-column: 12 / 13; /* Start on row 5 and end on row 11 (exclusive) */
-    background-color: #ffffff00;
-    border: 2px solid var(--dark-color);
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 4px;
-  }
+.card+.card {
+  margin-left: 8px;
+}
 
-  .arrow-left {
-    display: flex;
-    justify-content: center;
-    grid-row: 6 / 8; /* Start on row 5 and end on row 11 (exclusive) */
-    grid-column: 1 / 3; /* Start on column 3 and end on column 11 (exclusive) */
-  }
+.card img {
+  width: 200%;
+  height: auto;
+  transform-origin: center;
+  transform: scale(110%);
+}
 
-  .arrow-right {
-    display: flex;
-    justify-content: center;
-    grid-row: 6 / 8; /* Start on row 5 and end on row 11 (exclusive) */
-    grid-column: 11 / 13; /* Start on column 3 and end on column 11 (exclusive) */
-  }
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ff992a; /* Color overlay */
+  mix-blend-mode: hard-light; /* Blend mode */
+  opacity: 0; /* Start with opacity 0 */
+  transition: opacity 0.3s ease; /* Transition for opacity change */
+  z-index: 2; /* Adjust the value as needed */
+}
 
-  .arrow-left,
-  .arrow-right img {
-    transform: scale(60%);
-  }
+.card:hover::before {
+  opacity: 1; /* Change opacity on hover */
+}
+
+.card:hover {
+  transform: translateY(-5%);
+}
+
+.homepage {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  /* Create 12 equal-width columns */
+  grid-template-rows: repeat(12, 1fr);
+  /* Create 12 equal-height rows */
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  font-size: 119px;
+  grid-row: 2 / 3;
+  /* Start on row 5 and end on row 11 (exclusive) */
+  grid-column: 3 / 11;
+  /* Start on column 3 and end on column 11 (exclusive) */
+}
+
+.login {
+  grid-column: 12 / 13;
+  /* Start on row 5 and end on row 11 (exclusive) */
+  background-color: #ffffff00;
+  border: 2px solid var(--dark-color);
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px;
+}
+
+.login:hover {
+  background-color: var(--medium-color);
+}
+
+.arrow-left {
+  display: flex;
+  justify-content: center;
+  grid-row: 6 / 8;
+  /* Start on row 5 and end on row 11 (exclusive) */
+  grid-column: 1 / 3;
+  /* Start on column 3 and end on column 11 (exclusive) */
+}
+
+.arrow-right {
+  display: flex;
+  justify-content: center;
+  grid-row: 6 / 8;
+  /* Start on row 5 and end on row 11 (exclusive) */
+  grid-column: 11 / 13;
+  /* Start on column 3 and end on column 11 (exclusive) */
+}
+
+.arrow-left,
+.arrow-right img {
+  transform: scale(60%);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+  cursor: pointer;
+  mix-blend-mode: hard-light;
+}

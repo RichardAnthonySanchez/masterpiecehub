@@ -12,9 +12,8 @@ body {
     color: var(--dark-color);
 }
 
-h1,
-h2,
-h3 {
+h1
+ {
     font-family: 'Almendra Display', cursive;
     font-size: 2rem;
 }
