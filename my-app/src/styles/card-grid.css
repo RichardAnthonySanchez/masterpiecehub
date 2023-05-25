@@ -85,6 +85,7 @@
 }
 
 .login {
+  font-family: 'Comfortaa', cursive;
   grid-column: 12 / 13;
   background-color: #ffffff00;
   border: 2px solid var(--dark-color);

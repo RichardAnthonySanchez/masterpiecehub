@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Almendra+Display&family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Almendra+Display&family=Comfortaa&display=swap');
 
 :root {
     --light-color: #f5e8e5;
@@ -8,8 +8,8 @@
 
 body {
     background-color: var(--light-color);
-    font-family: 'Comfortaa', cursive;
     color: var(--dark-color);
+    font-family: 'Playfair Display', serif;
 }
 
 h1
@@ -17,3 +17,13 @@ h1
     font-family: 'Almendra Display', cursive;
     font-size: 2rem;
 }
+
+h2,
+h3 {
+    font-family: 'Comfortaa', cursive;
+}
+
+::selection {
+    background-color: var(--medium-color);
+    color: var(--light-color);
+  }  
