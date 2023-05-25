@@ -9,12 +9,26 @@ const HomePage = () => {
 
   //navigate era cards to the left
   const handleLeftArrowClick = () => {
-    setActiveCardIndex((prevIndex) => prevIndex - 1);
+    setActiveCardIndex((prevIndex) => {
+      if (prevIndex === 0) {
+        // Loop to the end if at the beginning
+        return uniqueEras.length - 4;
+      } else {
+        return prevIndex - 1;
+      }
+    });
   };
   
   //navigate era cards to the right
   const handleRightArrowClick = () => {
-    setActiveCardIndex((prevIndex) => prevIndex + 1);
+    setActiveCardIndex((prevIndex) => {
+      if (prevIndex === uniqueEras.length - 4) {
+        // Loop to the beginning if at the end
+        return 0;
+      } else {
+        return prevIndex + 1;
+      }
+    });
   };
 
   //display 4 cards at a time
