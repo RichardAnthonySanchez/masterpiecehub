@@ -6,7 +6,7 @@
     --medium-color: #ff992a;
 }
 
-body {
+#root {
     background-color: var(--light-color);
     color: var(--dark-color);
     font-family: 'Playfair Display', serif;

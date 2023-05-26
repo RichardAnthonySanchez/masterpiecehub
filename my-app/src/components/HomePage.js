@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Container, Row, Col } from 'react-bootstrap';
 import Card from './Card';
 
 const HomePage = () => {
@@ -53,40 +54,41 @@ const HomePage = () => {
   };
   
   return (
-    <div className="homepage">
-      <h1 className='header'>MASTERPIECE HUB</h1>
-      <div className="arrow-left" onClick={handleLeftArrowClick}>
-      <img src="img/nav-left.svg" alt="nav left" />
-      </div>
-      <div className="arrow-right" onClick={handleRightArrowClick}>
-      <img src="img/nav-right.svg" alt="nav right" />
-      </div>
-      <div className="card-grid">
-        {displayedEras.map((era, index) => {
-          // Find the first artwork for the era
-          const artworkForEra = artworkData.find((artwork) => artwork.era === era);
-
-          // Render the card only if there is artwork for the era
-          if (artworkForEra) {
-            //era class names need to be one word to be targeted by css style
-            const era = artworkForEra.era;
-            const eraReduced = era.split(' ').join('');
-            const cardClass = `card card-${eraReduced}`; // Generate a unique class name
-            return (
-              <Card
-                key={index}
-                title={artworkForEra.era}
-                image={artworkForEra.image}
-                className={cardClass}
-              />
-            );
-          }
-          return null;
-        })}
-      </div>
-      <Link to="/login" className='login'>Login</Link>
-    </div>
+    <Container className="homepage vh-100">
+      <Row>
+        <Col className="text-right" lg={{ span: 1, offset: 11}} md={{ span: 2, offset: 10 }}>
+          <Link to="/login" className="login">Login</Link>
+        </Col>
+      </Row>
+      <h1 className="header pt-1">MASTERPIECE HUB</h1>
+      <Row className="pt-5 justify-content-center h-25 align-items-center">
+        <Col className="d-flex justify-content-end arrow-left" onClick={handleLeftArrowClick}>
+          <img src="img/nav-left.svg" alt="nav left" />
+        </Col>
+        <Col lg={10}>
+          <div className="card-grid">
+            {displayedEras.map((era, index) => {
+              const artworkForEra = artworkData.find((artwork) => artwork.era === era);
+              if (artworkForEra) {
+                const era = artworkForEra.era;
+                const eraNoSpace = era.split(' ').join('');
+                const cardClass = `card card-${eraNoSpace}`;
+                return (
+                  <Col lg={2} key={index} className={cardClass}>
+                    <Card title={artworkForEra.era} image={artworkForEra.image} />
+                  </Col>
+                );
+              }
+              return null;
+            })}
+          </div>
+        </Col>
+        <Col className=" d-flex justify-content-start arrow-right" onClick={handleRightArrowClick}>
+          <img src="img/nav-right.svg" alt="nav right" />
+        </Col>
+      </Row>
+    </Container>
   );
-  }
+}
 
 export default HomePage;

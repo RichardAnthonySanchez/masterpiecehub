@@ -4,7 +4,8 @@ import './App.css';
 import LoginForm from './components/LoginForm';
 import HomePage from './components/HomePage';
 import Authentication from './components/Authentication';
-import './styles/styles.css'; // Import the styles
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/styles.css';
 
 //init state with no token
 function App() {
