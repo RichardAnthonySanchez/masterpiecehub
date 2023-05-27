@@ -91,7 +91,7 @@ const HomePage = () => {
               if (artworkForEra) {
                 const era = artworkForEra.era;
                 const eraNoSpace = era.split(' ').join('');
-                const cardClass = `card-mobile card-mobile-${eraNoSpace}`;
+                const cardClass = `card-mobile card-mobile-${eraNoSpace} pb-5`;
                 return (
                   <Row key={index} className={cardClass}>
                     <div className="aspect-ratio-container">
