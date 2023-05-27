@@ -78,7 +78,11 @@ const HomePage = () => {
                 const cardClass = `card card-${eraNoSpace}`;
                 return (
                   <Col lg={2} md={12} key={index} className={cardClass}>
-                    <Card title={artworkForEra.era} image={artworkForEra.image} />
+                    <Card 
+                    title={artworkForEra.era} 
+                    image={artworkForEra.image} 
+                    link={`/${eraNoSpace}`} //dyanmically make our cards with links to era pages
+                    />
                   </Col>
                 );
               }
@@ -92,10 +96,15 @@ const HomePage = () => {
                 const era = artworkForEra.era;
                 const eraNoSpace = era.split(' ').join('');
                 const cardClass = `card-mobile card-mobile-${eraNoSpace} pb-5`;
+                console.log(eraNoSpace.toLowerCase());
                 return (
                   <Row key={index} className={cardClass}>
                     <div className="aspect-ratio-container">
-                    <Card title={artworkForEra.era} image={artworkForEra.image} />
+                    <Card 
+                    title={artworkForEra.era} 
+                    image={artworkForEra.image}
+                    link={`/${eraNoSpace.toLowerCase()}`} //dyanmically make our cards with links to era pages
+                     />
                     </div>
                   </Row>
                 );

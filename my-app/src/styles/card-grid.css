@@ -118,6 +118,8 @@
 
 .card:hover {
   transform: translateY(-5%);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+
 }
 
 .homepage {
@@ -136,7 +138,7 @@
 }
 
 .header-mobile {
-  background-color: var(--medium-color);
+  background-color: var(--dark-color);
   color: var(--light-color);
   font-weight: bold;
 }
