@@ -54,19 +54,22 @@ const HomePage = () => {
   };
   
   return (
-    <Container className="homepage vh-100">
+    <Container className="homepage d-flex flex-column">
       <Row>
-        <Col className="text-right" lg={{ span: 1, offset: 11}} md={{ span: 2, offset: 10 }}>
+        <Col className="text-right" lg={{ span: 1, offset: 11}} md={{ span: 2, offset: 10 }} sm={12}>
           <Link to="/login" className="login">Login</Link>
         </Col>
       </Row>
-      <h1 className="header pt-1">MASTERPIECE HUB</h1>
+      <Row className="align-items-center pt-4">
+      <h1 className="header pt-1 d-none d-lg-flex">MASTERPIECE HUB</h1>
+      <h2 className="header-mobile h2-responsive rounded d-lg-none d-flex justify-content-center align-items-center p-4">MASTERPIECE HUB</h2>
+      </Row>
       <Row className="pt-5 justify-content-center h-25 align-items-center">
-        <Col className="d-flex justify-content-end arrow-left" onClick={handleLeftArrowClick}>
+        <Col className="d-none d-lg-flex justify-content-end arrow-left" onClick={handleLeftArrowClick}>
           <img src="img/nav-left.svg" alt="nav left" />
         </Col>
-        <Col lg={10}>
-          <div className="card-grid">
+        <Col lg={10} sm={12}>
+          <div className="card-grid d-none d-lg-flex pb-5">
             {displayedEras.map((era, index) => {
               const artworkForEra = artworkData.find((artwork) => artwork.era === era);
               if (artworkForEra) {
@@ -74,7 +77,7 @@ const HomePage = () => {
                 const eraNoSpace = era.split(' ').join('');
                 const cardClass = `card card-${eraNoSpace}`;
                 return (
-                  <Col lg={2} key={index} className={cardClass}>
+                  <Col lg={2} md={12} key={index} className={cardClass}>
                     <Card title={artworkForEra.era} image={artworkForEra.image} />
                   </Col>
                 );
@@ -82,8 +85,26 @@ const HomePage = () => {
               return null;
             })}
           </div>
+          <div className="card-grid-mobile d-lg-none md-col">
+            {uniqueEras.map((era, index) => {
+              const artworkForEra = artworkData.find((artwork) => artwork.era === era);
+              if (artworkForEra) {
+                const era = artworkForEra.era;
+                const eraNoSpace = era.split(' ').join('');
+                const cardClass = `card-mobile card-mobile-${eraNoSpace}`;
+                return (
+                  <Row key={index} className={cardClass}>
+                    <div className="aspect-ratio-container">
+                    <Card title={artworkForEra.era} image={artworkForEra.image} />
+                    </div>
+                  </Row>
+                );
+              }
+              return null;
+            })}
+          </div>
         </Col>
-        <Col className=" d-flex justify-content-start arrow-right" onClick={handleRightArrowClick}>
+        <Col className="d-none d-lg-flex justify-content-start arrow-right" onClick={handleRightArrowClick}>
           <img src="img/nav-right.svg" alt="nav right" />
         </Col>
       </Row>
