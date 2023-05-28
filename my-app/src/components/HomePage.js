@@ -96,7 +96,6 @@ const HomePage = () => {
                 const era = artworkForEra.era;
                 const eraNoSpace = era.split(' ').join('');
                 const cardClass = `card-mobile card-mobile-${eraNoSpace} pb-5`;
-                console.log(eraNoSpace.toLowerCase());
                 return (
                   <Row key={index} className={cardClass}>
                     <div className="aspect-ratio-container">
