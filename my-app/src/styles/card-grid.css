@@ -187,6 +187,10 @@
   mix-blend-mode: hard-light;
 }
 
+.card-row-1,
+.card-row-2 {
+}
+
 .card.card-Medieval img {
   transform: translateX(-25%) scale(1.5);
 }
