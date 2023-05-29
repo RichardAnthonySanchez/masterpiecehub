@@ -30,21 +30,20 @@ const MedievalPage = () => {
     <div>
       <div className='medievalpage container col-lg-10 col-md-12 flex-column'>
         <h1 className='header pt-5'>MEDIEVAL</h1>
-        <Row className='era-card-grid d-flex justify-content-center'>
+        <Row className='justify-content-center'>
+        <Row className='col-10 justify-content-center'>
             {medievalArtworks.slice(0, 10).map((artwork) => (
-              <Col className='era-card-container' lg={2} md={5} sm={1} key={artwork.id}>
+              <Col lg={2} className='era-crop-container'>
                 <Card
                   title={artwork.title}
                   image={artwork.image}
-                  className={`card era-card era-card-${artwork.title.split(' ').join('').toLowerCase()}`}
-                >
-                  <div className="aspect-ratio-container">
+                  className={`card era-card era-card-${artwork.title.split(' ').join('').toLowerCase()}`}>
                     <img src={artwork.image} alt={artwork.title} />
-                  </div>
                   <h3>{artwork.title}</h3>
                 </Card>
-              </Col>
+                </Col>
             ))}
+        </Row>
         </Row>
         <a href='#era-copy' className='learn-more'>
         <Row className='learn-more align-items-center pt-5 pb-5'>
