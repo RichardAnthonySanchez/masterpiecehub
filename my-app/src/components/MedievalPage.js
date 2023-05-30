@@ -70,11 +70,11 @@ function BasicExample() {
         <Row className='justify-content-center d-none d-lg-flex'>
         <Row className='col-10 justify-content-center'>
             {medievalArtworks.slice(0, 10).map((artwork) => (
-              <Col lg={2} className='era-crop-container'>
+              <Col lg={2} className='card era-card'>
                 <Card
                   title={artwork.title}
                   image={artwork.image}
-                  className={`card era-card era-card-${artwork.title.split(' ').join('').toLowerCase()}`}>
+                  className={`era-card-${artwork.title.split(' ').join('').toLowerCase().split("'").join('')}`}>
                     <img src={artwork.image} alt={artwork.title} />
                   <h3>{artwork.title}</h3>
                 </Card>

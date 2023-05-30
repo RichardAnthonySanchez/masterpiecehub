@@ -54,7 +54,7 @@ const HomePage = () => {
   };
   
   return (
-    <Container className="homepage d-flex flex-column">
+    <Container className="homepage d-flex flex-column min-vh-100">
       <Row>
         <Col className="text-right" lg={{ span: 1, offset: 11}} md={{ span: 2, offset: 10 }} sm={12}>
           <Link to="/login" className="login">Login</Link>
@@ -69,7 +69,7 @@ const HomePage = () => {
           <img src="img/nav-left.svg" alt="nav left" />
         </Col>
         <Col lg={10} sm={12}>
-          <div className="card-grid d-none d-lg-flex pb-5">
+          <div className="card-grid d-none d-lg-flex">
             {displayedEras.map((era, index) => {
               const artworkForEra = artworkData.find((artwork) => artwork.era === era);
               if (artworkForEra) {
