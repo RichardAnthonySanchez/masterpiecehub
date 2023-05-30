@@ -2,6 +2,20 @@
 
 }
 
+.accordion-button:not(.collapse) {
+  color: var(--medium-color);
+  background-color: var(--light-color);
+}
+
+.accordion-button {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+
+.accordion-collapse {
+  background-color: var(--light-color);
+}
+
 .era-crop-container {
   position: relative;
   width: 100%;
@@ -22,9 +36,14 @@
     object-position: center; 
   }
 
+  h2 {
+    color: var(--dark-color);
+  }
+
   .era-copy {
     font-size: 1.5rem;
     line-height: 3rem;
+    color: var(--dark-color);
   }
 
   .learn-more{

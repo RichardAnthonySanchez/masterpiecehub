@@ -28,25 +28,31 @@ const MedievalPage = () => {
 
 function BasicExample() {
   return (
-    <Accordion defaultActiveKey="0" className='d-lg-none'>
+    <Accordion defaultActiveKey="1" className='d-lg-none accordion-flush pt-5'>
       <Accordion.Item eventKey="0">
-        <Accordion.Header>Accordion Item #1</Accordion.Header>
+        <Accordion.Header>Show Artwork</Accordion.Header>
         <Accordion.Body>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+        {medievalArtworks.slice(0, 10).map((artwork) => (
+              <Col className='card-grid-mobile pt-5'>
+                <div className='aspect-ratio-container'>
+                <Card
+                  title={artwork.title}
+                  image={artwork.image}
+                  className={`card-mobile card-mobile-${artwork.title.split(' ').join('').toLowerCase()}`}>
+                    <img src={artwork.image} alt={artwork.title} />
+                  <h3>{artwork.title}</h3>
+                </Card>
+                </div>
+                </Col>
+            ))}
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="1">
-        <Accordion.Header>Accordion Item #2</Accordion.Header>
+        <Accordion.Header>Learn More</Accordion.Header>
         <Accordion.Body>
-        <div id='' className='row justify-content-center align-items-center pt-5 vh-100'>
-        <h2 className='row justify-content-center'>Medieval Art</h2>
-        <p className='era-copy col-lg-5 col-md-10'>
+        <div id='' className='row justify-content-center align-items-center'>
+        <h2 className='row justify-content-center pt-5'>Medieval Art</h2>
+        <p className='era-copy col-lg-5 col-md-10 col-sm-12'>
           The Medieval era, spanning from the 5th to the 15th century, marked a significant transition in art history. Building upon the foundations of ancient art forms, such as Roman and Byzantine influences, Medieval art developed its distinctive style and symbolism. The era saw a fusion of Christian traditions and classical motifs, resulting in magnificent illuminated manuscripts, intricate stone carvings, and awe-inspiring stained glass windows. These artistic expressions laid the groundwork for the emergence of the Gothic art movement, characterized by soaring cathedrals, pointed arches, and elaborate sculptures. The Medieval era's reverence for spirituality and innovative architectural techniques paved the way for the grandeur and magnificence of Gothic art.
         </p>
       </div>
@@ -58,8 +64,9 @@ function BasicExample() {
 
   return (
     <div>
-      <div className='medievalpage container col-lg-10 col-md-12 flex-column'>
-        <h1 className='header pt-5'>MEDIEVAL</h1>
+      <div className='medievalpage container min-vh-100 col-lg-10 col-sm-12 flex-column'>
+        <h1 className='header pt-5 d-none d-lg-flex'>MEDIEVAL</h1>
+        <h2 className="header-mobile h2-responsive rounded d-lg-none d-flex justify-content-center align-items-center p-4">MEDIEVAL</h2>
         <Row className='justify-content-center d-none d-lg-flex'>
         <Row className='col-10 justify-content-center'>
             {medievalArtworks.slice(0, 10).map((artwork) => (
