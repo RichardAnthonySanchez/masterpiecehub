@@ -81,7 +81,7 @@ const HomePage = () => {
                     <Card 
                     title={artworkForEra.era} 
                     image={artworkForEra.image} 
-                    link={`/${eraNoSpace}`} //dyanmically make our cards with links to era pages
+                    link={`/${eraNoSpace.toLowerCase()}`} //dyanmically make our cards with links to era pages
                     />
                   </Col>
                 );
