@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
 import '../styles/era-pages.css';
-import { Container, Row, Col, Accordion } from 'react-bootstrap';
+import { Container, Row, Col, Accordion, Button } from 'react-bootstrap';
 import { fetchArtworkData } from './artworkAPI';
 
 const MedievalPage = () => {
@@ -102,6 +102,9 @@ function BasicExample() {
         <p className='era-copy col-lg-5 col-md-10'>
           The Medieval era, spanning from the 5th to the 15th century, marked a significant transition in art history. Building upon the foundations of ancient art forms, such as Roman and Byzantine influences, Medieval art developed its distinctive style and symbolism. The era saw a fusion of Christian traditions and classical motifs, resulting in magnificent illuminated manuscripts, intricate stone carvings, and awe-inspiring stained glass windows. These artistic expressions laid the groundwork for the emergence of the Gothic art movement, characterized by soaring cathedrals, pointed arches, and elaborate sculptures. The Medieval era's reverence for spirituality and innovative architectural techniques paved the way for the grandeur and magnificence of Gothic art.
         </p>
+      </div>
+      <div className='navigation d-flex justify-content-center pb-2 pt-5'>
+              <Button className='col' href='/'>Back to Art Movements</Button>
       </div>
     </div>
   );

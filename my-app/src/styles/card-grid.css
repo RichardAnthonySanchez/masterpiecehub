@@ -10,6 +10,19 @@
   }
 }
 
+.btn.btn-primary {
+  color: var(--light-color);
+  background-color: var(--dark-color);
+  border: none;
+  font-family: 'Comfortaa', cursive;
+}
+
+.btn.btn-primary:hover {
+  color: var(--light-color);
+  background-color: var(--medium-color);
+  border: none;
+}
+
 .card-grid {
    /*width: 100%; */
    display: flex; 
