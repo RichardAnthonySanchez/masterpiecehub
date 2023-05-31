@@ -173,6 +173,7 @@ z-index: 2;
 
 .login:hover {
   background-color: var(--medium-color);
+  color: var(--light-color);
 }
 
 .arrow-left {

@@ -1,6 +1,19 @@
 .accordion-button:not(.collapse) {
-  color: var(--dark-color);
-  background-color: var(--light-color);
+  color: var(--light-color) !important;
+  background-color: var(--dark-color) !important;
+}
+
+.accordion-button:not(.collapse)::after {
+  filter: brightness(0%) invert(100);
+}
+
+.accordion-button:focus {
+  box-shadow: none !important;
+}
+
+.accordion-button:hover {
+  /* color: var(--light-color) !important; */
+  background-color: var(--medium-color) !important;
 }
 
 .accordion-collapse {
