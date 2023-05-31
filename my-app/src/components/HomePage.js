@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import Card from './Card';
+import { fetchArtworkData } from './artworkAPI';
 
 const HomePage = () => {
   const [artworkData, setArtworkData] = useState([]);
@@ -36,22 +37,22 @@ const HomePage = () => {
   const displayedEras = uniqueEras.slice(activeCardIndex, activeCardIndex + 4);
 
   useEffect(() => {
-    // Fetch artwork data when the component mounts
-    fetchArtworkData();
+    const fetchData = async () => {
+      const data = await fetchArtworkData();
+      setArtworkData(data);
+    };
+
+    fetchData();
   }, []);
 
-  const fetchArtworkData = async () => {
-    try {
-      const response = await fetch('http://localhost:3000/artworks');
-      const data = await response.json();
-      setArtworkData(data);
-      // Extract unique eras from artwork data
-      const uniqueEras = [...new Set(data.map((artwork) => artwork.era))];
+  useEffect(() => {
+    const filterArtWorkData = () => {
+      const uniqueEras = [...new Set(artworkData.map((artwork) => artwork.era))];
       setUniqueEras(uniqueEras);
-    } catch (error) {
-      console.error('Error fetching artwork data:', error);
-    }
-  };
+    };
+
+    filterArtWorkData();
+  }, [artworkData]);
   
   return (
     <Container className="homepage d-flex flex-column min-vh-100">

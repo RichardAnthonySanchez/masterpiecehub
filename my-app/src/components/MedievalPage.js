@@ -29,7 +29,7 @@ const MedievalPage = () => {
     filterMedievalArtworks();
   }, [artworkData]);
 
-function BasicExample() {
+function ShowAccordion() {
   return (
     <Accordion defaultActiveKey="1" className='d-lg-none accordion-flush pt-5'>
       <Accordion.Item eventKey="0">
@@ -85,7 +85,7 @@ function BasicExample() {
             ))}
         </Row>
         </Row>
-        <BasicExample className='d-flex col d-lg-none'></BasicExample>
+        <ShowAccordion className='d-flex col d-lg-none'></ShowAccordion>
         <a href='#era-copy' className='learn-more'>
         <Row className='learn-more align-items-center pt-5 pb-5 d-none d-lg-flex'>
           <Col className='d-flex flex-row-reverse'>
