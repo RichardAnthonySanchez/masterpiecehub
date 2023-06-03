@@ -33,8 +33,8 @@ const ArtworkPage = () => {
   // Render the artwork page content based on the specific artwork
   return (
     <Container className='artworkpage min-vh-100 col-lg-6 col-md-12 flex-column'>
-      <h1 className='header pb-1 pt-5 d-none d-lg-flex'>{thisArtwork.title}</h1>
-      <h2 className='header-mobile h2-responsive rounded d-lg-none d-flex justify-content-center align-items-center p-4'>{thisArtwork.title}</h2>
+      <h1 className='header text-center pb-1 pt-5 d-none d-lg-flex'>{thisArtwork.title}</h1>
+      <h2 className='header-mobile text-center h2-responsive rounded d-lg-none d-flex justify-content-center align-items-center p-4'>{thisArtwork.title}</h2>
       <Row className='justify-content-center d-none d-lg-flex'>
         <div className='card era-card col-lg-2'>
           <img className='img-fluid' src={'/' + thisArtwork.image} alt={thisArtwork.title} />
