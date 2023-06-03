@@ -10,6 +10,10 @@
   }
 }
 
+.navigation {
+  gap: 2rem;
+}
+
 .btn.btn-primary {
   color: var(--light-color);
   background-color: var(--dark-color);
