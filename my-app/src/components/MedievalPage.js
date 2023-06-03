@@ -41,6 +41,7 @@ function ShowAccordion() {
                 <Card
                   title={artwork.title}
                   image={artwork.image}
+                  link={`/artwork/${artwork.id}`}
                   className={`card-mobile card-mobile-${artwork.title.split(' ').join('').toLowerCase()}`}>
                     <img src={artwork.image} alt={artwork.title} />
                   <h3>{artwork.title}</h3>
@@ -77,6 +78,7 @@ function ShowAccordion() {
                 <Card
                   title={artwork.title}
                   image={artwork.image}
+                  link={`/artwork/${artwork.id}`}
                   className={`era-card-${artwork.title.split(' ').join('').toLowerCase().split("'").join('')}`}>
                     <img src={artwork.image} alt={artwork.title} />
                   <h3>{artwork.title}</h3>
