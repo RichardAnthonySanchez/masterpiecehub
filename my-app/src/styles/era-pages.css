@@ -47,6 +47,66 @@
     color: var(--dark-color);
   }
 
+  .era-card-thedeathofmarat img{
+    transform: scale(1.2); 
+ }
+
+ .era-card-oathofthehoratii img{
+  transform: scale(2.0); 
+}
+
+.era-card-thesleepofreasonproducesmonsters img{
+  transform: scale(1.2); 
+}
+
+.era-card-napoleoncrossingthealps img{
+  transform: scale(1.3); 
+}
+
+.card-mobile-napoleoncrossingthealps img{
+  transform: translateY(-20%) translateX(-50%); 
+}
+
+.era-card-thethirdofmay1808 img{
+  transform: scale(2.0); 
+}
+
+.era-card-cupidandpsyche img{
+  transform: scale(2.2); 
+}
+
+.card-mobile-cupidandpsyche img{
+  transform: translateY(-35%) translateX(-50%); 
+}
+
+.era-card-theraftofthemedusa img{
+  transform: scale(2.5); 
+}
+
+.card-mobile-theraftofthemedusa img{
+  transform: translateY(-40%) translateX(-50%); 
+}
+
+.era-card-theemperornapoleoninhisstudyatthetuileries img{
+  transform: scale(1.2); 
+}
+
+.card-mobile-theemperornapoleoninhisstudyatthetuileries img{
+  transform: translateY(-15%) translateX(-50%); 
+}
+
+.era-card-thecoronationofnapoleon img{
+  transform: scale(2.6); 
+}
+
+.card-mobile-thecoronationofnapoleon img{
+  transform: translateY(-60%) translateX(-50%); 
+}
+
+.era-card-thehaywain img{
+  transform: scale(2.5); 
+}
+
   .era-card-thecallingofstmatthew img{
     transform: scale(2.0); 
  }
