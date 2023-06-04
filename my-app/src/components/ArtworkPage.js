@@ -36,10 +36,13 @@ const ArtworkPage = () => {
       <h1 className='header text-center pb-1 pt-5 d-none d-lg-flex'>{thisArtwork.title}</h1>
       <h2 className='header-mobile text-center h2-responsive rounded d-lg-none d-flex justify-content-center align-items-center p-4'>{thisArtwork.title}</h2>
       <Row className='justify-content-center d-none d-lg-flex'>
-        <div className='card era-card col-lg-2'>
-          <img className='img-fluid' src={'/' + thisArtwork.image} alt={thisArtwork.title} />
+        <div className='col'>
+          <div className='artwork float-start'>
+            <img className='' src={'/' + thisArtwork.image} alt={thisArtwork.title} />
+          </div>
+          <p className='era-copy'>{thisArtwork.description}</p>
         </div>
-        <p className='era-copy col'>{thisArtwork.description}</p>
+        
         {/* Render other artwork details */}
       </Row>
       <Row className='mobile-content d-lg-none pt-5 justify-content-center'>

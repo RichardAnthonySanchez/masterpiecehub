@@ -10,6 +10,23 @@
   }
 }
 
+.artwork {
+  position: relative;
+  width: 15rem;
+  height: 20rem; /* Set the desired fixed height for the container */
+  margin-right: 2rem;
+  overflow: hidden;
+}
+
+.artwork img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the image within the container */
+  width: auto;
+  height: 100%;
+}
+
 .navigation {
   gap: 2rem;
 }
