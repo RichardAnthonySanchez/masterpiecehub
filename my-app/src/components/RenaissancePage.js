@@ -4,12 +4,12 @@ import '../styles/era-pages.css';
 import { Container, Row, Col, Accordion, Button } from 'react-bootstrap';
 import { fetchArtworkData } from './artworkAPI';
 
-const MedievalPage = () => {
+const RenaissancePage = () => {
   const [artworkData, setArtworkData] = useState([]);
-  const [medievalArtworks, setMedievalArtworks] = useState([]);
+  const [renaissanceArtworks, setRenaissanceArtworks] = useState([]);
 
-  const title = 'Medieval';
-  const description = "The Medieval era, spanning from the 5th to the 15th century, marked a significant transition in art history. Building upon the foundations of ancient art forms, such as Roman and Byzantine influences, Medieval art developed its distinctive style and symbolism. The era saw a fusion of Christian traditions and classical motifs, resulting in magnificent illuminated manuscripts, intricate stone carvings, and awe-inspiring stained glass windows. These artistic expressions laid the groundwork for the emergence of the Gothic art movement, characterized by soaring cathedrals, pointed arches, and elaborate sculptures. The Medieval era's reverence for spirituality and innovative architectural techniques paved the way for the grandeur and magnificence of Gothic art."
+  const title = 'Renaissance';
+  const description = "The Renaissance art movement, which emerged in Italy during the 14th century, marked a significant shift from the medieval era that came before it. Building upon the foundations laid by medieval art, the Renaissance celebrated humanism, individualism, and the revival of classical Greek and Roman aesthetics. Artists of the Renaissance focused on realistic depictions of the human form, perspective, light, and shadow. This newfound emphasis on humanistic ideals and naturalism paved the way for the flourishing of Renaissance art. The Renaissance also laid the groundwork for the subsequent Baroque art movement, which further expanded upon the principles of naturalism, emotion, and grandeur. The influence of Renaissance art can be seen in the richly detailed and dramatic compositions of Baroque artworks. Together, the Renaissance and Baroque art movements represent a remarkable evolution in the history of Western art, with the Renaissance acting as a bridge between the medieval era and the exuberant splendor of the Baroque."
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,12 +21,12 @@ const MedievalPage = () => {
   }, []);
 
   useEffect(() => {
-    const filterMedievalArtworks = () => {
+    const filterRenaissanceArtworks = () => {
       const filteredArtworks = artworkData.filter((artwork) => artwork.era === title);
-      setMedievalArtworks(filteredArtworks);
+      setRenaissanceArtworks(filteredArtworks);
     };
 
-    filterMedievalArtworks();
+    filterRenaissanceArtworks();
   }, [artworkData]);
 
 function ShowAccordion() {
@@ -35,7 +35,7 @@ function ShowAccordion() {
       <Accordion.Item eventKey="0">
         <Accordion.Header>Show Artwork</Accordion.Header>
         <Accordion.Body>
-        {medievalArtworks.slice(0, 10).map((artwork) => (
+        {renaissanceArtworks.slice(0, 10).map((artwork) => (
               <Col className='card-grid-mobile pt-5'>
                 <div className='aspect-ratio-container'>
                 <Card
@@ -68,12 +68,12 @@ function ShowAccordion() {
 
   return (
     <div>
-      <div className='medievalpage container min-vh-100 col-lg-10 col-sm-12 flex-column'>
+      <div className='renaissancepage container min-vh-100 col-lg-10 col-sm-12 flex-column'>
         <h1 className='header pt-5 d-none d-lg-flex'>{title.toUpperCase()}</h1>
         <h2 className="header-mobile h2-responsive rounded d-lg-none d-flex justify-content-center align-items-center p-4">{title.toUpperCase()}</h2>
         <Row className='justify-content-center d-none d-lg-flex'>
         <Row className='col-10 justify-content-center'>
-            {medievalArtworks.slice(0, 10).map((artwork) => (
+            {renaissanceArtworks.slice(0, 10).map((artwork) => (
               <Col lg={2} className='card era-card'>
                 <Card
                   title={artwork.title}
@@ -115,4 +115,4 @@ function ShowAccordion() {
   );
             };  
 
-export default MedievalPage;
+export default RenaissancePage;

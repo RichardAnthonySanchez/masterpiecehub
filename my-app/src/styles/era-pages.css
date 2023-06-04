@@ -51,12 +51,24 @@
     transform: scale(2.0); 
  }
 
+ .card-mobile-thebayeuxtapestry img{
+  transform: translateY(-30%) translateX(-50%); 
+}
+
  .era-card-thebookofkells img{
-    transform: scale(1.5); 
- }
+  transform: scale(1.5); 
+}
+
+.card-mobile-thebookofkells img{
+  transform: translateY(-30%) translateX(-50%); 
+}
 
  .era-card-chartrescathedral img{
   transform: scale(1.2); 
+}
+
+.card-mobile-chartrescathedral img{
+  transform: translateY(-50%) translateX(-50%); 
 }
 
 .era-card-thelindisfarnegospels img{
@@ -85,4 +97,76 @@
 
 .era-card-thebookofhoursofjeannedevreux img{
   transform: scale(2.5) translateX(20%);
+}
+
+.era-card-thestavelottriptych img{
+  transform: scale(2.5); 
+}
+
+.era-card-monalisa img{
+  transform: scale(1.2); 
+}
+
+.card-mobile-monalisa img{
+  transform: translateY(-25%) translateX(-50%); 
+}
+
+.era-card-thelastsupper img{
+  transform: scale(3.0); 
+}
+
+.era-card-thebirthofvenus img{
+  transform: scale(2.5); 
+}
+
+.card-mobile-thebirthofvenus img{
+  transform: translateY(-20%) translateX(-50%); 
+}
+
+.era-card-thecreationofadam img{
+  transform: scale(3.5) translateX(13%); 
+}
+
+.era-card-theschoolofathens img{
+  transform: scale(2.5); 
+}
+
+.era-card-thecreationofeve img{
+  transform: scale(2.5) translateX(5%); 
+}
+
+.card-mobile-thecreationofeve img{
+  transform: translateY(-20%) translateX(-50%); 
+}
+
+.era-card-thesistinemadonna img{
+  transform: scale(1.2); 
+}
+
+.card-mobile-thesistinemadonna img{
+  transform: translateY(-15%) translateX(-50%); 
+}
+
+.era-card-thelastjudgment img{
+  transform: scale(2.0); 
+}
+
+.card-mobile-thelastjudgment img{
+  transform: translateY(-30%) translateX(-50%); 
+}
+
+.era-card-thedavid img{
+  transform: scale(1.2); 
+}
+
+.card-mobile-thedavid img{
+  transform: translateY(-20%) translateX(-50%); 
+}
+
+.era-card-primavera img{
+  transform: scale(3.5) translateX(-3%); 
+}
+
+.card-mobile-primavera img{
+  transform: translateY(-30%) translateX(-50%); 
 }
