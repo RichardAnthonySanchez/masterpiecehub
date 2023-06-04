@@ -47,6 +47,71 @@
     color: var(--dark-color);
   }
 
+  .era-card-thecallingofstmatthew img{
+    transform: scale(2.0); 
+ }
+
+ .era-card-theecstasyofstteresa img{
+  transform: scale(1.2); 
+}
+
+.card-mobile-theecstasyofstteresa img{
+  transform: translateY(-35%) translateX(-50%); 
+}
+
+.era-card-thenightwatch img{
+  transform: scale(2); 
+}
+
+.era-card-theconversionofstpaul img{
+  transform: scale(1.5); 
+}
+
+.card-mobile-theconversionofstpaul img{
+  transform: translateY(-20%) translateX(-50%); 
+}
+
+.era-card-theraisingofthecross img{
+  transform: scale(2.5); 
+}
+
+.era-card-thecoronationofthevirgin img{
+  transform: scale(1.5); 
+}
+
+.card-mobile-thecoronationofthevirgin img{
+  transform: translateY(-40%) translateX(-50%); 
+}
+
+.era-card-theallegoryofthefaith img{
+  transform: scale(1.5); 
+}
+
+.era-card-thetriumphofbacchus img{
+  transform: scale(2.5); 
+}
+
+.card-mobile-thetriumphofbacchus img{
+  transform: translateY(-30%) translateX(-50%); 
+}
+
+.era-card-thesacrificeofisaac img{
+  transform: scale(2.5); 
+}
+
+.card-mobile-thesacrificeofisaac img{
+  transform: translateY(-25%) translateX(-50%); 
+}
+
+.era-card-theanatomylessonofdrnicolaestulp img{
+  transform: scale(2.5); 
+}
+
+.card-mobile-theanatomylessonofdrnicolaestulp img{
+  transform: translateY(-40%) translateX(-50%); 
+}
+
+
   .era-card-thebayeuxtapestry img{
     transform: scale(2.0); 
  }
