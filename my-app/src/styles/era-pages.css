@@ -55,6 +55,85 @@
   transform: scale(2.2); 
 }
 
+.era-card-campbellssoupcans img{
+  transform: scale(2.4); 
+}
+
+.card-mobile-campbellssoupcans img{
+  transform: translateY(-50%) translateX(-50%); 
+}
+
+.era-card-whaam img{
+  transform: scale(3.5) translateX(-17%); 
+}
+
+.card-mobile-whaam img{
+  transform: translateY(-30%) translateX(-50%); 
+}
+
+.era-card-drowninggirl img{
+  transform: scale(1.5); 
+}
+
+.card-mobile-drowninggirl img{
+  transform: translateY(-50%) translateX(-50%); 
+}
+
+.era-card-marilyndiptych img{
+  transform: scale(2.5); 
+}
+
+.card-mobile-marilyndiptych img{
+  transform: translateY(-50%) translateX(-50%); 
+}
+
+.era-card-justwhatisitthatmakestodayshomessodifferentsoappealing img{
+  transform: scale(2.5); 
+}
+
+.card-mobile-justwhatisitthatmakestodayshomessodifferentsoappealing img{
+  transform: translateY(-40%) translateX(-50%); 
+}
+
+.era-card-ohjeffiloveyoutoobut img{
+  transform: scale(2.0); 
+}
+
+.card-mobile-ohjeffiloveyoutoobut img{
+  transform: translateY(-30%) translateX(-50%); 
+}
+
+.era-card-target img{
+  transform: scale(2.0); 
+}
+
+.card-mobile-target img{
+  transform: translateY(-50%) translateX(-50%); 
+}
+
+.era-card-ninejackies img{
+  transform: scale(1.2); 
+}
+
+.card-mobile-ninejackies img{
+  transform: translateY(-50%) translateX(-50%); 
+}
+
+.era-card-flag img{
+  transform: scale(3.0); 
+}
+
+.card-mobile-flag img{
+  transform: translateY(-50%) translateX(-50%); 
+}
+
+.era-card-banana img{
+  transform: scale(1.5); 
+}
+
+.card-mobile-banana img{
+  transform: translateY(-30%) translateX(-50%); 
+}
 
  .era-card-theelephants img{
   transform: scale(1.6) translateX(10%); 

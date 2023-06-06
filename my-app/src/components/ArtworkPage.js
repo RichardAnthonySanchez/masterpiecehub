@@ -53,7 +53,7 @@ const ArtworkPage = () => {
         {/* Render other artwork details */}
       </Row>
       <div className='navigation d-flex justify-content-center pb-2 pt-5 space-between'>
-        <Button className='col-lg-3 col-sm-5' href={`/${thisArtwork.era}`}>Back to {thisArtwork.era} Artworks</Button>
+        <Button className='col-lg-3 col-sm-5' href={`/${thisArtwork.era.split(' ').join('')}`}>Back to {thisArtwork.era} Artworks</Button>
         <Button className='col-lg-3 col-sm-5' href='/'>Back to Art Movements</Button>
       </div>
     </Container>
