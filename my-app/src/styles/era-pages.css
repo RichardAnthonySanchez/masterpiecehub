@@ -47,9 +47,90 @@
     color: var(--dark-color);
   }
 
-  .era-card-thethinker img{
-    transform: scale(1.2); 
- }
+  .card-mobile-thepersistenceofmemory img{
+    transform: translateY(-50%) translateX(-50%); 
+  }
+
+ .era-card-thepersistenceofmemory img{
+  transform: scale(2.2); 
+}
+
+
+ .era-card-theelephants img{
+  transform: scale(1.6) translateX(10%); 
+}
+
+.card-mobile-theelephants img{
+  transform: translateY(-15%) translateX(-50%); 
+}
+
+.era-card-thesonofman img{
+  transform: scale(1.3); 
+}
+
+.card-mobile-thesonofman img{
+  transform: translateY(-25%) translateX(-50%); 
+}
+
+.era-card-thetreacheryofimages img{
+  transform: scale(2.0); 
+}
+
+.card-mobile-thetreacheryofimages img{
+  transform: translateY(-40%) translateX(-50%); 
+}
+
+.era-card-theaccommodationsofdesire img{
+  transform: scale(2.0); 
+}
+
+.card-mobile-theaccommodationsofdesire img{
+  transform: translateY(-50%) translateX(-50%); 
+}
+
+.era-card-thelovers img{
+  transform: scale(2.0) translateX(10%); 
+}
+
+.card-mobile-thelovers img{
+  transform: translateY(-40%) translateX(-50%); 
+}
+
+.era-card-thehumancondition img{
+  transform: scale(1.2); 
+}
+
+.card-mobile-thehumancondition img{
+  transform: translateY(-55%) translateX(-50%); 
+}
+
+.era-card-thetemptationofsaintanthony img{
+  transform: scale(1.7); 
+}
+
+.card-mobile-thetemptationofsaintanthony img{
+  transform: translateY(-70%) translateX(-50%); 
+}
+
+.era-card-thefalsemirror img{
+  transform: scale(2.0); 
+}
+
+.card-mobile-thefalsemirror img{
+  transform: translateY(-50%) translateX(-50%); 
+}
+
+.era-card-metamorphosisofnarcissus img{
+  transform: scale(2.0); 
+}
+
+.card-mobile-metamorphosisofnarcissus img{
+  transform: translateY(-20%) translateX(-50%); 
+}
+
+ .era-card-thethinker img{
+  transform: scale(1.2); 
+}
 
  .card-mobile-thethinker img{
   transform: translateY(-25%) translateX(-50%); 
