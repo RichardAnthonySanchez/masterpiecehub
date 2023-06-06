@@ -47,6 +47,86 @@
     color: var(--dark-color);
   }
 
+  .era-card-thegleaners img{
+    transform: scale(1.2); 
+ }
+
+ .card-mobile-thegleaners img{
+  transform: translateY(-45%) translateX(-50%); 
+}
+
+ .era-card-thestonebreakers img{
+  transform: scale(1.5); 
+}
+
+.card-mobile-thestonebreakers img{
+  transform: translateY(-30%) translateX(-50%); 
+}
+
+.era-card-olympia img{
+  transform: scale(1.2); 
+}
+
+.card-mobile-olympia img{
+  transform: translateY(-35%) translateX(-50%); 
+}
+
+.era-card-aburialatornans img{
+  transform: scale(2.0); 
+}
+
+.card-mobile-aburialatornans img{
+  transform: translateY(-35%) translateX(-50%); 
+}
+
+.era-card-therailway img{
+  transform: scale(1.2); 
+}
+
+.card-mobile-therailway img{
+  transform: translateY(-25%) translateX(-50%); 
+}
+
+.era-card-thehorsefair img{
+  transform: scale(4.5) translateX(5%); 
+}
+
+.card-mobile-thehorsefair img{
+  transform: scale(1.5) translateY(-35%) translateX(-40%); 
+}
+
+.era-card-thethirdclasscarriage img{
+  transform: scale(4.0); 
+}
+
+.card-mobile-thethirdclasscarriage img{
+  transform: translateY(-40%) translateX(-50%); 
+}
+
+.era-card-theangelus img{
+  transform: scale(2.2); 
+}
+
+.card-mobile-theangelus img{
+  transform: translateY(-32%) translateX(-50%); 
+}
+
+.era-card-thegrainsifters img{
+  transform: scale(2.2); 
+}
+
+.card-mobile-thegrainsifters img{
+  transform: translateY(-35%) translateX(-50%); 
+}
+
+.era-card-theabsinthedrinker img{
+  transform: scale(1.2); 
+}
+
+.card-mobile-theabsinthedrinker img{
+  transform: translateY(-20%) translateX(-50%); 
+}
+
   .era-card-wandererabovetheseaoffog img{
     transform: scale(1.2); 
  }
