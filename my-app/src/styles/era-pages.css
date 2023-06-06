@@ -47,9 +47,89 @@
     color: var(--dark-color);
   }
 
-  .era-card-thedeathofmarat img{
+  .era-card-wandererabovetheseaoffog img{
     transform: scale(1.2); 
  }
+
+ .card-mobile-wandererabovetheseaoffog img{
+  transform: translateY(-40%) translateX(-50%); 
+}
+
+ .era-card-libertyleadingthepeople img{
+  transform: scale(1.7); 
+}
+
+.card-mobile-libertyleadingthepeople img{
+  transform: translateY(-20%) translateX(-50%); 
+}
+
+.era-card-thenightmare img{
+  transform: scale(1.7) translateX(-15%); 
+}
+
+.card-mobile-thenightmare img{
+  transform: translateY(-20%) translateX(-50%); 
+}
+
+.era-card-thefightingtemeraire img{
+  transform: scale(1.8); 
+}
+
+.card-mobile-thefightingtemeraire img{
+  transform: translateY(-70%) translateX(-50%); 
+}
+
+.era-card-theslaveship img{
+  transform: scale(1.8); 
+}
+
+.card-mobile-theslaveship img{
+  transform: translateY(-55%) translateX(-50%); 
+}
+
+.era-card-theslavemarket img{
+  transform: scale(1.2); 
+}
+
+.card-mobile-theslavemarket img{
+  transform: translateY(-55%) translateX(-50%); 
+}
+
+.era-card-thefightingcocks img{
+  transform: scale(2.5); 
+}
+
+.card-mobile-thefightingcocks img{
+  transform: translateY(-45%) translateX(-50%); 
+}
+
+.era-card-theoxbow img{
+  transform: scale(2.0) translateX(-20%); 
+}
+
+.card-mobile-theoxbow img{
+  transform: translateY(-60%) translateX(-50%); 
+}
+
+.era-card-theexecutionofladyjanegrey img{
+  transform: scale(2.0); 
+}
+
+.card-mobile-theexecutionofladyjanegrey img{
+  transform: translateY(-40%) translateX(-50%); 
+}
+
+.era-card-theeveningstar img{
+  transform: scale(2.0); 
+} 
+
+.card-mobile-theeveningstar img{
+  transform: translateY(-55%) translateX(-50%); 
+}
+
+.era-card-thedeathofmarat img{
+   transform: scale(1.2); 
+}
 
  .era-card-oathofthehoratii img{
   transform: scale(2.0); 
