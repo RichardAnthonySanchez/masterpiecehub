@@ -47,6 +47,86 @@
     color: var(--dark-color);
   }
 
+  .era-card-impressionsunrise img{
+    transform: scale(1.7); 
+ }
+
+ .card-mobile-impressionsunrise img{
+  transform: translateY(-65%) translateX(-50%); 
+}
+
+ .era-card-abaratthefoliesbergère img{
+  transform: scale(1.8); 
+}
+
+.card-mobile-abaratthefoliesbergère img{
+  transform: translateY(-30%) translateX(-50%); 
+}
+
+.era-card-waterlilies img{
+  transform: scale(1.2); 
+}
+
+.card-mobile-waterlilies img{
+  transform: translateY(-35%) translateX(-50%); 
+}
+
+.era-card-danceatthemoulindelagalette img{
+  transform: scale(1.5); 
+}
+
+.card-mobile-danceatthemoulindelagalette img{
+  transform: translateY(-45%) translateX(-50%); 
+}
+
+.era-card-starrynightovertherhône img{
+  transform: scale(1.5); 
+}
+
+.card-mobile-starrynightovertherhône img{
+  transform: translateY(-45%) translateX(-50%); 
+}
+
+.era-card-womanwithaparasol img{
+  transform: scale(1.2); 
+}
+
+.card-mobile-womanwithaparasol img{
+  transform: translateY(-20%) translateX(-50%); 
+}
+
+.era-card-thedanceclass img{
+  transform: scale(1.5); 
+}
+
+.card-mobile-thedanceclass img{
+  transform: translateY(-30%) translateX(-50%); 
+}
+
+.era-card-bridgeoverapondofwaterlilies img{
+  transform: scale(2.0); 
+}
+
+.card-mobile-bridgeoverapondofwaterlilies img{
+  transform: translateY(-25%) translateX(-50%); 
+}
+
+.era-card-theluncheononthegrass img{
+  transform: scale(2.0) translateX(20%); 
+}
+
+.card-mobile-theluncheononthegrass img{
+  transform: translateY(-30%) translateX(-50%); 
+}
+
+.era-card-dancersinblue img{
+  transform: scale(1.3); 
+}
+
+.card-mobile-dancersinblue img{
+  transform: translateY(-50%) translateX(-50%); 
+}
+
   .era-card-thegleaners img{
     transform: scale(1.2); 
  }

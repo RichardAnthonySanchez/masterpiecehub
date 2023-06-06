@@ -11,6 +11,7 @@ import BaroquePage from './components/BaroquePage';
 import NeoclassicismPage from './components/NeoclassicismPage';
 import RomanticismPage from './components/RomanticismPage';
 import RealismPage from './components/RealismPage';
+import ImpressionismPage from './components/ImpressionismPage';
 import ArtworkPage from './components/ArtworkPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/styles.css';
@@ -53,6 +54,7 @@ useEffect(() => {
         <Route exact path="/neoclassicism" element={<NeoclassicismPage />} />
         <Route exact path="/romanticism" element={<RomanticismPage />} />
         <Route exact path="/realism" element={<RealismPage />} />
+        <Route exact path="/impressionism" element={<ImpressionismPage />} />
         <Route path="/artwork/:id" element={<ArtworkPage />} />
 
         <Route
