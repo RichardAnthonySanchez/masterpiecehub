@@ -41,7 +41,7 @@ const LoginForm = ({ handleLogin }) => {
   return (
     <Container className='loginpage min-vh-100'>
       <Row className='d-flex align-items-center justify-content-center min-vh-100'>
-        <Col className='col-2'>
+        <Col className='col-lg-2 col-md-12'>
           <h2>Login</h2>
          <form onSubmit={handleSubmit}>
             <div>

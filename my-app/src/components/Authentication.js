@@ -92,7 +92,7 @@ const Authentication = ({ token }) => {
   //render html for authorized users
     return (
       <div className='container min-vh-100 justify-content-center'>
-        <Col className='col-5'>
+        <Col className='col-lg-5 col-md-12'>
       <h2>Artworks</h2>
       <button className='btn btn-primary' onClick={handleAddArtwork}>Add Artwork</button>
       {showForm && (
