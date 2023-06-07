@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Row, Col } from 'react-bootstrap';
 
 //structure auth, init form state hidden, and access artwork data
 const Authentication = ({ token }) => {
@@ -90,11 +91,12 @@ const Authentication = ({ token }) => {
 
   //render html for authorized users
     return (
-      <div>
+      <div className='container min-vh-100 justify-content-center'>
+        <Col className='col-5'>
       <h2>Artworks</h2>
-      <button onClick={handleAddArtwork}>Add Artwork</button>
+      <button className='btn btn-primary' onClick={handleAddArtwork}>Add Artwork</button>
       {showForm && (
-            <form id="addArtworkForm" onSubmit={handleFormSubmit}>
+            <form className='col-1 pb-2 pt-2' id="addArtworkForm" onSubmit={handleFormSubmit}>
               <label htmlFor="title">Title:</label>
               <input type="text" id="title" name="title" required />
               <label htmlFor="artist">Artist:</label>
@@ -107,17 +109,18 @@ const Authentication = ({ token }) => {
               <input type="text" id="image" name="image" required />
               <label htmlFor="description">Description:</label>
               <textarea id="description" name="description" required></textarea>
-              <button type="submit">Add Artwork</button>
+              <button className='btn btn-primary' type="submit">Add Artwork</button>
             </form>
           )}
       <ul>
             {artworks.map((artwork) => (
-              <li key={artwork.id}>
+              <li className='pt-2' key={artwork.id}>
                 {artwork.title}{' '}
-                <button onClick={() => handleDelete(artwork.id)}>Delete</button>
+                <button className='btn btn-primary btn-delete' onClick={() => handleDelete(artwork.id)}>Delete</button>
               </li>
             ))}
           </ul>
+          </Col>
     </div>
     );
   };

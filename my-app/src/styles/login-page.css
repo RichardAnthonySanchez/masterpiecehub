@@ -1,0 +1,29 @@
+label {
+    margin-top: 1rem;
+}
+
+input {
+    background-color: var(--dark-color);
+    border: none;
+    outline: var(--medium-color);
+    color: var(--light-color);
+}
+
+textarea {
+    background-color: var(--dark-color);
+    border: none;
+    outline: var(--medium-color);
+    color: var(--light-color);
+}
+
+li {
+    list-style: none;
+}
+
+.login-btn {
+    margin-top: 1rem;
+}
+
+.btn-delete {
+    margin-left: 1rem;
+}

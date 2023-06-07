@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/login-page.css';
+import { Container, Row, Col, Accordion, Button } from 'react-bootstrap';
 
 //structure loginform, init state, and navigation
 const LoginForm = ({ handleLogin }) => {
@@ -37,20 +39,24 @@ const LoginForm = ({ handleLogin }) => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username:</label>
-          <input type="text" value={username} onChange={({ target }) => setUsername(target.value)} />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input type="password" value={password} onChange={({ target }) => setPassword(target.value)} />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <Container className='loginpage min-vh-100'>
+      <Row className='d-flex align-items-center justify-content-center min-vh-100'>
+        <Col className='col-2'>
+          <h2>Login</h2>
+         <form onSubmit={handleSubmit}>
+            <div>
+              <label>Username:</label>
+             <input type="text" value={username} onChange={({ target }) => setUsername(target.value)} />
+           </div>
+           <div>
+              <label>Password:</label>
+             <input type="password" value={password} onChange={({ target }) => setPassword(target.value)} />
+            </div>
+           <button className='login-btn btn btn-primary' type="submit">Login</button>
+         </form>
+       </Col>
+      </Row>
+    </Container>
   );
 };
 
