@@ -1,8 +1,11 @@
 {
   "rewrites": [
     {
-      "source": "/artworks/(.*)",
-      "destination": "server.js"
+      "source": "/(.*)",
+      "destination": "/api/server.js"
+    },
+    {
+      "installCommand": "npm install"
     }
   ]
 }
